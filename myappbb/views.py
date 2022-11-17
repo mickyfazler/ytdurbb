@@ -15,7 +15,7 @@ class HomeView(View):
         print("post baby")    
         form_obj=ContractFormBB(request.POST)
         if form_obj.is_valid():
-            lst_nm=form_obj.cleaned_data["namey"]
+            lst_nm=form_obj.cleaned_data["Playlist Link"]
             st_nm=form_obj.cleaned_data["starting_number"]
             end_nm=form_obj.cleaned_data["ending_number"]
             st_nm=int(st_nm)
