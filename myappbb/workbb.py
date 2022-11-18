@@ -6,7 +6,7 @@
     
     
 
-def workbb(entered_playlist_id='PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J',starting_number=1,ending_number=""):
+def get_lengthbb(entered_playlist_id='PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J',starting_number=1,ending_number=""):
     from googleapiclient.discovery import build
     print("id bb",entered_playlist_id)
     print("starting_number bb",starting_number)
@@ -126,11 +126,11 @@ def workbb(entered_playlist_id='PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J',starting_num
             return {'seconds_rt':total_secondsBB,"total_videosrt":total_videos,"selected_videosrt":selected_videos}     # rt means returned
 
 
-def myfuncbb(pl="https://www.youtube.com/playlist?list=PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J",strt_nmbr=1,end_nmbr=""):    
+def give_lengthbb(pl="https://www.youtube.com/playlist?list=PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J",strt_nmbr=1,end_nmbr=""):    
     # pl="https://www.youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR"
     pl=pl.split("=")[1]
     print("pl baby",pl)
-    returned_bb=workbb(pl,strt_nmbr,end_nmbr)
+    returned_bb=get_lengthbb(pl,strt_nmbr,end_nmbr)
     print(returned_bb)
     total_secondsBB=returned_bb['seconds_rt']
     total_videos=returned_bb['total_videosrt']
@@ -147,7 +147,7 @@ def myfuncbb(pl="https://www.youtube.com/playlist?list=PL1pf33qWCkmh0_uPQc87cuR3
     # print(f"Length of the playlist {hourskk}:{minuteszz}:{secondsyy}")
     return f"Total videos {total_videos} Selected videos {selected_videos}   Length of the playlist {hourskk}:{minuteszz}:{secondsyy}"
 
-# myfuncbb()
+# give_lengthbb()
 
 # mydict={'seconds_bb':23,'nmp':23}
 # print(mydict)

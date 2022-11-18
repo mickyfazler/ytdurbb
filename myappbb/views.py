@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from .workbb import myfuncbb,workbb
+from .workbb import give_lengthbb
 from .formBB import ContractFormBB
 from django.views import View
 class HomeView(View):
@@ -22,7 +22,7 @@ class HomeView(View):
             end_nm=int(end_nm)
 
             print(lst_nm,st_nm,end_nm)
-            length_msg=myfuncbb(lst_nm,st_nm,end_nm)
+            length_msg=give_lengthbb(lst_nm,st_nm,end_nm)
             print("msg baby",length_msg)
             print("msg baby",type(length_msg))
             # return render(request,"frgtbb/homey.html",{"frm": form_obj})
