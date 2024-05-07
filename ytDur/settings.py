@@ -14,7 +14,8 @@ SECRET_KEY = '*p5j04j7xp7^8hn$wx=r)a(39bynduh@=41pc8@2(c3nl663=l'
 DEBUG = False       # Don't forget to do that
 
 # ALLOWED_HOSTS = ["*"]       # means all hosts
-ALLOWED_HOSTS = ["fazle.herokuapp.com","127.0.0.1","fazle.up.railway.app"]      
+# ALLOWED_HOSTS = ["fazle.herokuapp.com","127.0.0.1","fazle.up.railway.app"]      
+ALLOWED_HOSTS = ["127.0.0.1",".ondigitalocean.app"]      
 
 
 # Application definition
