@@ -16,7 +16,7 @@ def get_lengthbb(entered_playlist_id='PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J',starti
     total_secondsBB=0
     selected_videos=0
 
-    api_key_bb="AIzaSyBwcm65QtRUn4I_J64twA1oZqFJuC2xsHc"
+    api_key_bb="AIzaSyB2UDdWJOuydYAmkDUfKvYfJeaJE1Um6eA"
 
     youtube_bb=build('youtube','v3',developerKey=api_key_bb)
 
@@ -128,25 +128,37 @@ def get_lengthbb(entered_playlist_id='PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J',starti
 
 def give_lengthbb(pl="https://www.youtube.com/playlist?list=PL1pf33qWCkmh0_uPQc87cuR3PcZpklf-J",strt_nmbr=1,end_nmbr=""):    
     # pl="https://www.youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR"
-    pl=pl.split("=")[1]
-    print("pl baby",pl)
-    returned_bb=get_lengthbb(pl,strt_nmbr,end_nmbr)
-    print(returned_bb)
-    total_secondsBB=returned_bb['seconds_rt']
-    total_videos=returned_bb['total_videosrt']
-    selected_videos=returned_bb['selected_videosrt']
 
-    total_secondsBB=int(total_secondsBB)
-    print(f"Total videos {total_videos}")
-    print(f"Selected videos {selected_videos}")
-    # print(total_secondsBB)
+    try:    
+   
+        print('top of give_lengthbb') 
+        pl=pl.split("=")[1]
+        print("pl baby",pl)
+        returned_bb=get_lengthbb(pl,strt_nmbr,end_nmbr)
+        print(returned_bb)
+        total_secondsBB=returned_bb['seconds_rt']
+        total_videos=returned_bb['total_videosrt']
+        selected_videos=returned_bb['selected_videosrt']
 
-    minuteszz,secondsyy=divmod(total_secondsBB,60)          # function returns a tuple containing the quotient(ভাগফল)  and the remainder(ভাগশেষ) 
-    hourskk,minuteszz=divmod(minuteszz,60)
+        total_secondsBB=int(total_secondsBB)
+        print(f"Total videos {total_videos}")
+        print(f"Selected videos {selected_videos}")
+        # print(total_secondsBB)
 
-    # print(f"Length of the playlist {hourskk}:{minuteszz}:{secondsyy}")
-    return f"Total videos {total_videos} Selected videos {selected_videos}   Length of the playlist {hourskk}:{minuteszz}:{secondsyy}"
+        minuteszz,secondsyy=divmod(total_secondsBB,60)          # function returns a tuple containing the quotient(ভাগফল)  and the remainder(ভাগশেষ) 
+        hourskk,minuteszz=divmod(minuteszz,60)
+ 
+        print(f"Length of the playlist {hourskk}:{minuteszz}:{secondsyy}")
+        # return f"Total videos {total_videos} Selected videos {selected_videos}   Length of the playlist {hourskk}:{minuteszz}:{secondsyy}"
+        # return f"Total videos {total_videos} Selected videos {selected_videos}   Length of the playlist {hourskk}:{minuteszz}:{secondsyy}"
+        return {"total_videos_gv":total_videos,"selected_videos_gv":selected_videos,'hours_gv':hourskk,'minute_gv':minuteszz,'seconds_gv':secondsyy}     # _gv means give because `give_lengthbb` function is doing it
+    
+    except Exception as E:
+        # return f"Error baby . Please check playlist link and everything"
+        return {'error_ww':True}
+    
 
+            
 # give_lengthbb()
 
 # mydict={'seconds_bb':23,'nmp':23}
